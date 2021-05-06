@@ -1,0 +1,24 @@
+<template>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Sex</th>
+        <th>Date of birth</th>
+        <th>Profile picture</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</template>
+
+<script>
+export default {
+  name: "Table",
+};
+</script>
+
+<style scoped>
+</style>

@@ -34,9 +34,7 @@
       <option value="female">Female</option>
       <option value="other">Other</option>
     </select>
-
     <label for="dateOfBirth">Date of birth:</label>
-
     <input
       type="date"
       id="dateOfBirth"
