@@ -1,22 +1,16 @@
 <template>
   <div id="app">
-    <Form/>
-    <Filters/>
-    <Table/>
+    <Page/>
   </div>
 </template>
 
 <script>
-import Form from './components/Form.vue'
-import Table from './components/Table.vue'
-import Filters from './components/Filters.vue'
+import Page from './components/Page'
 
 export default {
   name: 'App',
   components: {
-    Form,
-    Table,
-    Filters
+    Page
   }
 }
 </script>
