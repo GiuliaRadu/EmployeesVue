@@ -74,12 +74,19 @@ export default {
         let button = document.createElement('button');
         row.appendChild(button)
         button.onclick = function() {
-            //row.remove();
-            //removeEmployeeFromDb(data.id)
+            row.remove();
+            $.ajax({
+            method: "DELETE",
+            url: `https://localhost:5001/employee/Employee/${data.id}`,
+            error: function () {
+                alert(`Failed to remove employee from list`);
+            },
+        });
         };
 
         tableNode.children[1].appendChild(row);
-    }
+    },
+
   },
 };
 </script>
