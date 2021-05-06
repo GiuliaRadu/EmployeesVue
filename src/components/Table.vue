@@ -17,6 +17,9 @@
 <script>
 export default {
   name: "Table",
+  methods:{
+      
+  }
 };
 </script>
 
