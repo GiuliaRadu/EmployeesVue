@@ -50,14 +50,53 @@
     <input type="file" id="img" name="img" accept="image/*" required />
     <br />
     <br />
-
-    <input type="submit" value="Submit" id="submit" />
+    <button @click="addFields()">Submit</button>
   </form>
 </template>
 
 <script>
+import $ from "jquery";
 export default {
   name: "Form",
+  methods: {
+    validateInput(newEmployee) {
+      if (
+        !newEmployee.firstName ||
+        !newEmployee.lastName ||
+        !newEmployee.email ||
+        !newEmployee.birthdate ||
+        !newEmployee.picture
+      ) {
+        return false;
+      }
+      return true;
+    },
+    addFields() {
+      var self = this;
+      var newEmployee = new Object();
+      newEmployee.lastName = document.getElementById("lname").value;
+      newEmployee.firstName = document.getElementById("fname").value;
+      newEmployee.email = document.getElementById("email").value;
+      newEmployee.gender = document.getElementById("sex").value;
+      newEmployee.birthdate = document.getElementById("dateOfBirth").value;
+      newEmployee.picture = document.getElementById("img").value;
+      if (!this.validateInput(newEmployee)) {
+        alert("Fields are required.");
+      }
+      $.ajax({
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(newEmployee),
+        url: "https://localhost:5001/employee/Employee",
+        success: function(data) {
+          self.$emit("addEmployee", data);
+        },
+        error: function() {
+          alert(`Failed to add employee.`);
+        },
+      });
+    },
+  },
 };
 </script>
 

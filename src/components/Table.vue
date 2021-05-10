@@ -73,6 +73,8 @@ export default {
         }
         let button = document.createElement('button');
         row.appendChild(button)
+        button.innerHTML = "X";
+        row.appendChild(button);
         button.onclick = function() {
             row.remove();
             $.ajax({
@@ -83,8 +85,8 @@ export default {
             },
         });
         };
-
         tableNode.children[1].appendChild(row);
+        this.employeesList.push(data);
     },
 
   },
