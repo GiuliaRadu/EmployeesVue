@@ -19,9 +19,7 @@
 // import $ from "jquery";
 export default {
   name: "Filters",
-  props: {
-    employeeTable: HTMLTableElement,
-  },
+  props: {},
   methods: {
     sortByDate() {
       let dataTable = document.getElementById("dataTable");
@@ -62,8 +60,28 @@ export default {
         }
       }
     },
-  },
-  filterByGender() {
+    filterByGender() {
+      let dataTable = document.getElementById("dataTable");
+      let filter = document.getElementById("filterGender").value;
+      console.log(filter);
+      let tr = dataTable.getElementsByTagName("tr");
+      console.log(tr);
+
+      for (var index = 1; index < tr.length; index++) {
+        var td = tr[index].getElementsByTagName("td")[3];
+        if (td) {
+          var genderValue = (td.textContent || td.innerText).toLowerCase();
+          if (
+            genderValue == filter.toLowerCase() ||
+            filter.toLowerCase() == "none"
+          ) {
+            tr[index].style.display = "";
+          } else {
+            tr[index].style.display = "none";
+          }
+        }
+      }
+    },
   },
 };
 </script>
